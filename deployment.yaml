@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hospital-project
+  labels:
+    app: hospital-project
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hospital-project
+  template:
+    metadata:
+      labels:
+        app: hospital-project
+    spec:
+      containers:
+      - name: hospital-project
+        image: sohit007/hospital-project:latest
+        ports:
+        - containerPort: 8080
+

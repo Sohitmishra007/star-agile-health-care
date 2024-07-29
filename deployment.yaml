@@ -24,11 +24,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: hospital-project-service
+  name: hospital-project
+  labels:
+    app: hospital-project
 spec:
   selector:
     app: hospital-project
+  type: NodePort
   ports:
-    - protocol: TCP
+    - nodePort: 31233 
       port: 80
+      targetPort: 8082
 
